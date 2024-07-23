@@ -11,12 +11,12 @@ import { AuthGuard, RoleGuard } from './middleware/mid';
 export class UsersController {
   constructor(private readonly usersService: UsersService) {}
 
-  @Post()
+  @Post('signIn')
   signIn(@Body() SignInDto: SignInDto) {
     return this.usersService.SignIn(SignInDto.email,SignInDto.password);
   }
 
-  @Post()
+  @Post('signUp')
   signUp(@Body() CreateUserDto: CreateUserDto) {
     return this.usersService.signUp(CreateUserDto);
   }
